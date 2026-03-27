@@ -1,6 +1,20 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="autoVehi">
     
-    <xacro:include filename="autoVehi_core.urdf.xacro" />
+    <xacro:property name="PI" value="3.1415926535897931"/>
+
+
+    <xacro:include filename="$(find av_description)/urdf/autoVehi_core.urdf.xacro" />
+    
+    <link name="world"/>
+    <joint name="vitual_joint" type="fixed">
+        <parent link="world"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <xacro:autoVehi>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </xacro:autoVehi>
     
 </robot>
