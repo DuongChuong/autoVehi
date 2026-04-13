@@ -121,43 +121,12 @@ def generate_launch_description():
     declare_world_cmd = DeclareLaunchArgument(
         name='world_file',
         default_value=default_world_file,
-        description='World file name (e.g., empty.world, house.world, pick_and_place_demo.world)')
-
-    # Pose arguments
-    declare_x_cmd = DeclareLaunchArgument(
-        name='x',
-        default_value='0.0',
-        description='x component of initial position, meters')
-
-    declare_y_cmd = DeclareLaunchArgument(
-        name='y',
-        default_value='0.0',
-        description='y component of initial position, meters')
-
-    declare_z_cmd = DeclareLaunchArgument(
-        name='z',
-        default_value='0.05',
-        description='z component of initial position, meters')
-
-    declare_roll_cmd = DeclareLaunchArgument(
-        name='roll',
-        default_value='0.0',
-        description='roll angle of initial orientation, radians')
-
-    declare_pitch_cmd = DeclareLaunchArgument(
-        name='pitch',
-        default_value='0.0',
-        description='pitch angle of initial orientation, radians')
-
-    declare_yaw_cmd = DeclareLaunchArgument(
-        name='yaw',
-        default_value='0.0',
-        description='yaw angle of initial orientation, radians')
+        description='World file name')
 
     # Include Robot State Publisher launch file if enabled
     robot_state_publisher_cmd = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([
-            os.path.join(pkg_share_description, 'launch', 'robot_state_publisher.launch.py')
+            os.path.join(pkg_share_description, 'launch', 'av_state_publisher.launch.py')
         ]),
         launch_arguments={
             'enable_odom_tf': enable_odom_tf,
@@ -228,12 +197,7 @@ def generate_launch_description():
             '-topic', '/robot_description',
             '-name', robot_name,
             '-allow_renaming', 'true',
-            '-x', x,
-            '-y', y,
-            '-z', z,
-            '-R', roll,
-            '-P', pitch,
-            '-Y', yaw
+         
         ])
 
     # Create the launch description and populate
@@ -251,14 +215,6 @@ def generate_launch_description():
     ld.add_action(declare_use_robot_state_pub_cmd)
     ld.add_action(declare_use_sim_time_cmd)
     ld.add_action(declare_world_cmd)
-
-    # Add pose arguments
-    ld.add_action(declare_x_cmd)
-    ld.add_action(declare_y_cmd)
-    ld.add_action(declare_z_cmd)
-    ld.add_action(declare_roll_cmd)
-    ld.add_action(declare_pitch_cmd)
-    ld.add_action(declare_yaw_cmd)
 
     # Add the actions to the launch description
     ld.add_action(set_env_vars_resources)

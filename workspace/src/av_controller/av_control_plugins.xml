@@ -1,0 +1,9 @@
+<library path="av_skid_steer_controller">
+  <class name="av_control/AvSkidSteerController" 
+         type="av_control::AvSkidSteerController" 
+         base_class_type="controller_interface::ControllerInterface">
+    <description>
+      Custom 4-wheel skid-steer controller for autonomous vehicle.
+    </description>
+  </class>
+</library>

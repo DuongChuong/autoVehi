@@ -3,11 +3,13 @@
     
     <xacro:property name="PI" value="3.1415926535897931"/>
 
+    <xacro:arg name="robot_name" default="autoVehi"/>
+    <xacro:arg name="use_gazebo" default="false"/>
 
     <xacro:include filename="$(find av_description)/urdf/autoVehi_core.urdf.xacro" />
     
     <link name="world"/>
-    <joint name="vitual_joint" type="fixed">
+    <joint name="virtual_joint" type="fixed">
         <parent link="world"/>
         <child link="base_link"/>
         <origin xyz="0 0 0" rpy="0 0 0"/>
@@ -16,5 +18,13 @@
     <xacro:autoVehi>
         <origin xyz="0 0 0" rpy="0 0 0"/>
     </xacro:autoVehi>
-    
+
+    <xacro:include filename="$(find av_description)/urdf/control/gazebo_sim_ros2_control.urdf.xacro" />
+    <xacro:load_gazebo_sim_ros2_control_plugin
+        robot_name="$(arg robot_name)"
+        use_gazebo="$(arg use_gazebo)"/>
+        
+    <xacro:include filename="$(find av_description)/urdf/control/autoVehi_ros2_control.urdf.xacro" />
+    <xacro:av_ros2_control
+        use_gazebo="$(arg use_gazebo)"/>
 </robot>
