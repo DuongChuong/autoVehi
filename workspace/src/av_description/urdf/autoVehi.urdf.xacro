@@ -5,19 +5,47 @@
 
     <xacro:arg name="robot_name" default="autoVehi"/>
     <xacro:arg name="use_gazebo" default="false"/>
+    <xacro:arg name="prefix" default=""/>
 
     <xacro:include filename="$(find av_description)/urdf/autoVehi_core.urdf.xacro" />
-    
+    <xacro:autoVehi/>
+<!--     
     <link name="world"/>
     <joint name="virtual_joint" type="fixed">
         <parent link="world"/>
         <child link="base_link"/>
         <origin xyz="0 0 0" rpy="0 0 0"/>
-    </joint>
+    </joint> -->
+    
+    <xacro:include filename="$(find av_description)/urdf/sensor/imu.urdf.xacro"/>
+    <xacro:imu_sensor
+      prefix="$(arg prefix)"
+      parent="chassis_link"
+      frame_id="imu"
+      xyz_offset="0 0 0"
+      rpy_offset="0 0 0"
+      update_rate="15.0"
+      topic_name="imu/data"/>
 
-    <xacro:autoVehi>
-        <origin xyz="0 0 0" rpy="0 0 0"/>
-    </xacro:autoVehi>
+
+    <xacro:include filename="$(find av_description)/urdf/sensor/lidar.urdf.xacro"/>
+    <xacro:lidar_sensor
+      prefix="$(arg prefix)"
+      parent="chassis_link"
+      frame_id="laser_frame"
+      xyz_offset="0.5 0 0.3"
+      rpy_offset="0 0 0"
+      mesh_xyz_offset="0 0 0.02"
+      mesh_rpy_offset="0 0 0"
+      topic_name="scan"/>
+
+    <xacro:include filename="$(find av_description)/urdf/sensor/camera.urdf.xacro"/>
+    <xacro:camera
+      prefix="$(arg prefix)"
+      camera_name="cam_1"
+      xyz_offset="0.5 0 0.15"
+      rpy_offset="0 0 0"/>
+
 
     <xacro:include filename="$(find av_description)/urdf/control/gazebo_sim_ros2_control.urdf.xacro" />
     <xacro:load_gazebo_sim_ros2_control_plugin
@@ -27,4 +55,5 @@
     <xacro:include filename="$(find av_description)/urdf/control/autoVehi_ros2_control.urdf.xacro" />
     <xacro:av_ros2_control
         use_gazebo="$(arg use_gazebo)"/>
+
 </robot>

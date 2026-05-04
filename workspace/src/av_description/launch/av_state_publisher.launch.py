@@ -63,7 +63,7 @@ def generate_launch_description():
     # Define filenames
     urdf_package = 'av_description'
     urdf_filename = 'autoVehi.urdf.xacro'
-    rviz_filename = 'default.rviz'
+    rviz_filename = 'rviz.rviz'
 
     pkg_share_description = FindPackageShare(urdf_package)
     default_urdf_model_path = PathJoinSubstitution([pkg_share_description, 'urdf', urdf_filename])

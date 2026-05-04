@@ -6,6 +6,7 @@ Panels:
       Expanded:
         - /Global Options1
         - /Status1
+        - /RobotModel1
       Splitter Ratio: 0.5
     Tree Height: 542
   - Class: rviz_common/Selection
@@ -47,46 +48,6 @@ Visualization Manager:
       Plane Cell Count: 10
       Reference Frame: <Fixed Frame>
       Value: true
-    - Class: rviz_default_plugins/TF
-      Enabled: true
-      Filter (blacklist): ""
-      Filter (whitelist): ""
-      Frame Timeout: 15
-      Frames:
-        All Enabled: true
-        base_link:
-          Value: true
-        chassis_link:
-          Value: true
-        wheel_left_bot:
-          Value: true
-        wheel_left_top:
-          Value: true
-        wheel_right_bot:
-          Value: true
-        wheel_right_top:
-          Value: true
-        world:
-          Value: true
-      Marker Scale: 1
-      Name: TF
-      Show Arrows: true
-      Show Axes: true
-      Show Names: false
-      Tree:
-        world:
-          base_link:
-            chassis_link:
-              wheel_left_bot:
-                {}
-              wheel_left_top:
-                {}
-              wheel_right_bot:
-                {}
-              wheel_right_top:
-                {}
-      Update Interval: 0
-      Value: true
     - Alpha: 1
       Class: rviz_default_plugins/RobotModel
       Collision Enabled: false
@@ -97,14 +58,66 @@ Visualization Manager:
         Durability Policy: Volatile
         History Policy: Keep Last
         Reliability Policy: Reliable
-        Value: ""
+        Value: /robot_description
       Enabled: true
       Links:
         All Links Enabled: true
         Expand Joint Details: false
         Expand Link Details: false
         Expand Tree: false
-        Link Tree Style: ""
+        Link Tree Style: Links in Alphabetic Order
+        base_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        cam_1_color_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        cam_1_color_optical_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+        cam_1_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        chassis_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        imu_link:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        laser_frame:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wheel_left_bot:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wheel_left_top:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wheel_right_bot:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
+        wheel_right_top:
+          Alpha: 1
+          Show Axes: false
+          Show Trail: false
+          Value: true
       Mass Properties:
         Inertia: false
         Mass: false
@@ -116,7 +129,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: world
+    Fixed Frame: base_link
     Frame Rate: 30
   Name: root
   Tools:
@@ -159,7 +172,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz_default_plugins/Orbit
-      Distance: 4.468910217285156
+      Distance: 7.307488918304443
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.05999999865889549
         Stereo Focal Distance: 1
@@ -174,10 +187,10 @@ Visualization Manager:
       Invert Z Axis: false
       Name: Current View
       Near Clip Distance: 0.009999999776482582
-      Pitch: 0.7153980731964111
+      Pitch: 0.3203984200954437
       Target Frame: <Fixed Frame>
       Value: Orbit (rviz)
-      Yaw: 1.1053977012634277
+      Yaw: 0.13039863109588623
     Saved: ~
 Window Geometry:
   Displays:
