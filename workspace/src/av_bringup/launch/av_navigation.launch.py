@@ -255,10 +255,14 @@ def generate_launch_description():
         }.items()
     )
 
-    # delayed_nav2_cmd = TimerAction(
-    #     period=15.0,
-    #     actions=[start_ros2_navigation_cmd]
-    # )
+    # Start the node that relays /cmd_vel to /skid_steer_controller/cmd_vel
+    start_cmd_vel_relay_cmd = Node(
+        package='av_navigation',
+        executable='cmd_vel_relay',
+        name='cmd_vel_relay',
+        output='screen',
+        parameters=[{'use_sim_time': use_sim_time}]
+    )
 
     # Start Extended Kalman Filter node from the robot_localization ROS 2 package
     start_ekf_cmd = IncludeLaunchDescription(
@@ -331,7 +335,7 @@ def generate_launch_description():
     # Add any actions
     ld.add_action(start_gazebo_cmd)
     ld.add_action(start_ekf_cmd)
-    # ld.add_action(delayed_nav2_cmd)
+    ld.add_action(start_cmd_vel_relay_cmd)
     ld.add_action(start_ros2_navigation_cmd)
  
     return ld

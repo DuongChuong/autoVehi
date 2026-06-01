@@ -79,7 +79,7 @@ controller_server:
     goal_checker_plugins: ["general_goal_checker"] # "precise_goal_checker"
     controller_plugins: ["FollowPath"]
     use_realtime_priority: false
-    enable_stamped_cmd_vel: true
+    enable_stamped_cmd_vel: false
 
     # Progress checker parameters
     progress_checker:
@@ -378,14 +378,14 @@ velocity_smoother:
     odom_duration: 0.1
     deadband_velocity: [0.0, 0.0, 0.0]
     velocity_timeout: 1.0
-    enable_stamped_cmd_vel: true
+    enable_stamped_cmd_vel: false
 
 collision_monitor:
   ros__parameters:
     base_frame_id: "base_link"
     odom_frame_id: "odom"
     cmd_vel_in_topic: "cmd_vel_smoothed"
-    cmd_vel_out_topic: "skid_steer_controller/cmd_vel"
+    cmd_vel_out_topic: "cmd_vel"
     state_topic: "collision_monitor_state"
     transform_tolerance: 0.2
     source_timeout: 1.0
