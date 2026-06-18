@@ -20,7 +20,7 @@ def generate_launch_description():
     gazebo_launch_file_path = 'launch/av_gazebo.launch.py'
     ekf_launch_file_path = 'launch/ekf_gazebo.launch.py'
     ekf_config_file_path = 'config/ekf.yaml'
-    # map_file_path = 'maps/cafe_world_map.yaml'
+    map_file_path = 'maps/hospital_world_map.yaml'
     nav2_params_path = 'config/av_nav2_default_params.yaml'
     rviz_config_file_path = 'rviz/default.rviz'
  
@@ -42,7 +42,7 @@ def generate_launch_description():
     nav2_dir = FindPackageShare(package='nav2_bringup').find('nav2_bringup')
     nav2_launch_dir = os.path.join(nav2_dir, 'launch')
     nav2_params_path = os.path.join(pkg_share_navigation, nav2_params_path)
-    # static_map_path = os.path.join(pkg_share_navigation, map_file_path)
+    static_map_path = os.path.join(pkg_share_navigation, map_file_path)
  
     # Launch configuration variables
     # Config and launch files
@@ -109,10 +109,10 @@ def generate_launch_description():
         default_value=default_gazebo_launch_path,
         description='Full path to the Gazebo launch file to use')
  
-    # declare_map_yaml_cmd = DeclareLaunchArgument(
-    #     name='map',
-    #     default_value=static_map_path,
-    #     description='Full path to map file to load')
+    declare_map_yaml_cmd = DeclareLaunchArgument(
+        name='map',
+        default_value=static_map_path,
+        description='Full path to map file to load')
  
     declare_namespace_cmd = DeclareLaunchArgument(
         name='namespace',
@@ -137,7 +137,7 @@ def generate_launch_description():
  
     declare_slam_cmd = DeclareLaunchArgument(
         name='slam',
-        default_value='True',
+        default_value='False',
         choices=['True', 'False'],
         description='Whether to run SLAM')
  
@@ -148,7 +148,7 @@ def generate_launch_description():
  
     declare_world_cmd = DeclareLaunchArgument(
         name='world_file',
-        default_value='warehouse.world',
+        default_value='hospital.world',
         description='World file name ')
  
     # Position arguments
@@ -159,7 +159,7 @@ def generate_launch_description():
  
     declare_y_cmd = DeclareLaunchArgument(
         name='y',
-        default_value='0.0',
+        default_value='2.0',
         description='y component of initial position, meters')
  
     declare_z_cmd = DeclareLaunchArgument(
@@ -187,6 +187,7 @@ def generate_launch_description():
     declare_headless_cmd = DeclareLaunchArgument(
         name='headless',
         default_value='True',
+        choices=['True', 'False'],
         description='Whether to execute gzclient (visualization)')
  
     declare_jsp_gui_cmd = DeclareLaunchArgument(
@@ -281,7 +282,7 @@ def generate_launch_description():
             'namespace': namespace,
             'use_namespace': use_namespace,
             'slam': slam,
-            # 'map': map_yaml_file,
+            'map': map_yaml_file,
             'use_sim_time': use_sim_time,
             'params_file': nav2_params_file,
             'autostart': autostart,
@@ -300,7 +301,7 @@ def generate_launch_description():
     ld.add_action(declare_ekf_config_file_cmd)
     ld.add_action(declare_ekf_launch_file_cmd)
     ld.add_action(declare_gazebo_launch_file_cmd)
-    # ld.add_action(declare_map_yaml_cmd)
+    ld.add_action(declare_map_yaml_cmd)
     ld.add_action(declare_namespace_cmd)
     ld.add_action(declare_nav2_params_file_cmd)
     ld.add_action(declare_rviz_config_file_cmd)

@@ -25,7 +25,7 @@ amcl:
     recovery_alpha_fast: 0.0
     recovery_alpha_slow: 0.0
     resample_interval: 1
-    robot_model_type: "nav2_amcl::OmniMotionModel" # Use "nav2_amcl::DifferentialMotionModel" if you have a differential drive robot
+    robot_model_type: "nav2_amcl::DifferentialMotionModel" 
     save_pose_rate: 0.5
     sigma_hit: 0.2
     tf_broadcast: true # map to odom frame transform
@@ -37,6 +37,15 @@ amcl:
     z_rand: 0.5
     z_short: 0.05
     scan_topic: scan
+    map_topic: map
+    set_initial_pose: true
+    always_reset_initial_pose: false
+    first_map_only: false
+    initial_pose:
+      x: 0.0
+      y: 0.0
+      z: 0.02
+      yaw: 0.0
 
 bt_navigator:
   ros__parameters:

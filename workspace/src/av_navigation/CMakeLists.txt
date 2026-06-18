@@ -22,8 +22,13 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
+install(PROGRAMS 
+  scripts/task_planner.py 
+  DESTINATION lib/${PROJECT_NAME}
+)
+
 install(
-  DIRECTORY config
+  DIRECTORY config av_navigation scripts maps
   DESTINATION share/${PROJECT_NAME}
 )
 

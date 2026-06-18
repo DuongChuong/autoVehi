@@ -22,10 +22,10 @@
     <include>
       <uri>model://sun</uri>
     </include>
-    <include>
+    <!-- <include>
       <uri>model://ground_plane</uri>
       <pose>0 0 -0.1 0 -0 0</pose>
-    </include>
+    </include> -->
 
     <model name="aws_robomaker_hospital_floor_01_floor_1">
       <static>true</static>
@@ -72,7 +72,7 @@
       <include><uri>model://aws_robomaker_hospital_elevator_01_door</uri></include>
       <pose>1.52843 19.3627 0.19 0 -0 0</pose>
     </model>
-    <model name="aws_robomaker_hospital_curtain_half_open_01_1">
+    <!-- <model name="aws_robomaker_hospital_curtain_half_open_01_1">
       <static>true</static>
       <include><uri>model://aws_robomaker_hospital_curtain_half_open_01</uri></include>
       <pose>-11.0216 -13.8069 0 0 -0 1.55358</pose>
@@ -106,8 +106,8 @@
       <static>true</static>
       <include><uri>model://aws_robomaker_hospital_curtain_half_open_01</uri></include>
       <pose>-11.0086 -21.7566 0 0 -0 1.55358</pose>
-    </model>
-    <model name="CGMClassic_1">
+    </model> -->
+    <!-- <model name="CGMClassic_1">
       <static>true</static>
       <include><uri>model://CGMClassic</uri></include>
       <pose>11.1777 -18.4129 0 0 0 -3.13719</pose>
@@ -265,8 +265,8 @@
     <model name="PotatoChipChair_16">
       <static>true</static>
       <include><uri>model://PotatoChipChair</uri></include>
-      <pose>5.1811 8.14489 0 0 -0 0</pose>
-    </model>
+      <pose>5.1811 8.14489 0 0 -0 0</pose> -->
+    <!-- </model> -->
     <model name="aws_robomaker_residential_CoffeeTable_01_1">
       <static>true</static>
       <include><uri>model://aws_robomaker_residential_CoffeeTable_01</uri></include>
@@ -302,7 +302,7 @@
       <include><uri>model://aws_robomaker_residential_SofaB_01</uri></include>
       <pose>-9.73697 -28.6538 -3e-06 1.3e-05 -4e-06 -1.56077</pose>
     </model>
-    <model name="aws_robomaker_residential_PortraitA_01_1">
+    <!-- <model name="aws_robomaker_residential_PortraitA_01_1">
       <static>true</static>
       <include><uri>model://aws_robomaker_residential_PortraitA_01</uri></include>
       <pose>1.14738 -6.92303 1.41115 0 -0 0</pose>
@@ -311,8 +311,8 @@
       <static>true</static>
       <include><uri>model://aws_robomaker_residential_PortraitD_02</uri></include>
       <pose>2.40772 -3.61975 1.54508 0 0 -1.57619</pose>
-    </model>
-    <model name="MopCart3_1">
+    </model> -->
+    <!-- <model name="MopCart3_1">
       <static>true</static>
       <include><uri>model://MopCart3</uri></include>
       <pose>1.07736 -8.59036 -6.7e-05 0 1e-06 0</pose>
@@ -386,7 +386,7 @@
       <static>true</static>
       <include><uri>model://CGMClassic</uri></include>
       <pose>-11.0878 -7.00992 0 0 -0 3.1351</pose>
-    </model>
+    </model> -->
     <model name="aws_robomaker_residential_Trash_01_1">
       <static>true</static>
       <include><uri>model://aws_robomaker_residential_Trash_01</uri></include>
@@ -402,7 +402,7 @@
       <include><uri>model://aws_robomaker_residential_Trash_01</uri></include>
       <pose>-12.1773 -27.6293 0.000894 -1e-06 -1e-06 0</pose>
     </model>
-    <model name="aws_robomaker_residential_PortraitE_01_1">
+    <!-- <model name="aws_robomaker_residential_PortraitE_01_1">
       <static>true</static>
       <include><uri>model://aws_robomaker_residential_PortraitE_01</uri></include>
       <pose>-9.06141 -31.9238 1.38136 0 -0 0</pose>
@@ -411,8 +411,8 @@
       <static>true</static>
       <include><uri>model://aws_robomaker_residential_PortraitE_01</uri></include>
       <pose>-11.7398 -31.9011 1.38136 0 -0 0</pose>
-    </model>
-    <model name="InstrumentCart1_1">
+    </model> -->
+    <!-- <model name="InstrumentCart1_1">
       <static>true</static>
       <include><uri>model://InstrumentCart1</uri></include>
       <pose>-11.8071 -16.1825 0 0 -0 1.56702</pose>
@@ -471,8 +471,8 @@
       <static>true</static>
       <include><uri>model://BedsideTable</uri></include>
       <pose>-12.1499 -2.63111 0.00018 1e-06 -0 -0.00878</pose>
-    </model>
-    <model name="aws_robomaker_hospital_curtain_half_open_01_7">
+    </model> -->
+    <!-- <model name="aws_robomaker_hospital_curtain_half_open_01_7">
       <static>true</static>
       <include><uri>model://aws_robomaker_hospital_curtain_half_open_01</uri></include>
       <pose>-11.0426 0.066126 0 0 -0 1.56614</pose>
@@ -481,7 +481,7 @@
       <static>true</static>
       <include><uri>model://aws_robomaker_hospital_curtain_half_open_01</uri></include>
       <pose>-11.0309 -3.75145 0 0 -0 1.56614</pose>
-    </model>
+    </model> -->
     <model name="aws_robomaker_hospital_floor_01_ceiling_1">
       <static>true</static>
       <include><uri>model://aws_robomaker_hospital_floor_01_ceiling</uri></include>
@@ -492,7 +492,7 @@
       <include><uri>model://aws_robomaker_hospital_ramp_01</uri></include>
       <pose>-1.70996 16.3685 0 0 -0 0</pose>
     </model>
-    <model name="AnesthesiaMachine_1">
+    <!-- <model name="AnesthesiaMachine_1">
       <static>true</static>
       <include><uri>model://AnesthesiaMachine</uri></include>
       <pose>-1.28478 -21.1127 0 0 0 -3.12971</pose>
@@ -576,8 +576,8 @@
       <static>true</static>
       <include><uri>model://Toilet</uri></include>
       <pose>-0.54552 -11.8033 0.000387 0 0 -3.139</pose>
-    </model>
-    <model name="aws_robomaker_residential_PortraitD_01_1">
+    </model> -->
+    <!-- <model name="aws_robomaker_residential_PortraitD_01_1">
       <static>true</static>
       <include><uri>model://aws_robomaker_residential_PortraitD_01</uri></include>
       <pose>-1.14723 -10.143 1.57344 0 -0 0</pose>
@@ -596,8 +596,8 @@
       <static>true</static>
       <include><uri>model://aws_robomaker_residential_PortraitD_01</uri></include>
       <pose>-1.06108 -12.9155 1.57344 0 0 -3.14134</pose>
-    </model>
-    <model name="Toilet_3">
+    </model> -->
+    <!-- <model name="Toilet_3">
       <static>true</static>
       <include><uri>model://Toilet</uri></include>
       <pose>7.4839 1.42958 0.000387 0 -0 -3.13589</pose>
@@ -616,8 +616,8 @@
       <static>true</static>
       <include><uri>model://Toilet</uri></include>
       <pose>7.48696 -12.617 0.000386 0 0 -3.13589</pose>
-    </model>
-    <model name="aws_robomaker_residential_PortraitD_02_3">
+    </model> -->
+    <!-- <model name="aws_robomaker_residential_PortraitD_02_3">
       <static>true</static>
       <include><uri>model://aws_robomaker_residential_PortraitD_02</uri></include>
       <pose>7.89294 -13.6155 1.54508 0 0 -1.57619</pose>
@@ -726,8 +726,8 @@
       <static>true</static>
       <include><uri>model://aws_robomaker_residential_PortraitD_01</uri></include>
       <pose>9.98896 11.914 1.40573 0 -0 0</pose>
-    </model>
-    <model name="ParkingTrolleyMin_1">
+    </model> -->
+    <!-- <model name="ParkingTrolleyMin_1">
       <static>true</static>
       <include><uri>model://ParkingTrolleyMin</uri></include>
       <pose>0.715846 -17.1496 -0.000121 -1e-06 -0 0</pose>
@@ -756,8 +756,8 @@
       <static>true</static>
       <include><uri>model://Scrubs</uri></include>
       <pose>-1.29468 -20.4093 0 0 0 -1.51066</pose>
-    </model>
-    <model name="aws_robomaker_hospital_curtain_open_01_1">
+    </model> -->
+    <!-- <model name="aws_robomaker_hospital_curtain_open_01_1">
       <static>true</static>
       <include><uri>model://aws_robomaker_hospital_curtain_open_01</uri></include>
       <pose>11.0051 -6.91002 0 0 0 -1.58737</pose>
@@ -771,8 +771,8 @@
       <static>true</static>
       <include><uri>model://aws_robomaker_hospital_curtain_closed_01</uri></include>
       <pose>10.9586 0.159483 0 0 0 -1.58306</pose>
-    </model>
-    <model name="MalePatientBed_1">
+    </model> -->
+    <!-- <model name="MalePatientBed_1">
       <static>true</static>
       <include><uri>model://MalePatientBed</uri></include>
       <pose>11.3771 -7.38891 0.001658 -1e-06 1e-06 3.11598</pose>
@@ -786,7 +786,7 @@
       <static>true</static>
       <include><uri>model://StorageRackCoverOpen</uri></include>
       <pose>9.15016 3.44263 -9e-06 1e-06 2e-06 0</pose>
-    </model>
+    </model> -->
     <model name="aws_robomaker_warehouse_ClutteringC_01_1">
       <static>true</static>
       <include><uri>model://aws_robomaker_warehouse_ClutteringC_01</uri></include>
@@ -797,7 +797,7 @@
       <include><uri>model://aws_robomaker_warehouse_ClutteringA_01</uri></include>
       <pose>10.8233 15.2153 0 0 -0 0</pose>
     </model>
-    <model name="StorageRack_3">
+    <!-- <model name="StorageRack_3">
       <static>true</static>
       <include><uri>model://StorageRack</uri></include>
       <pose>-10.1178 -10.4694 -0 0 -0 0</pose>
@@ -811,8 +811,8 @@
       <static>true</static>
       <include><uri>model://StorageRackCovered</uri></include>
       <pose>10.294 -10.577 -7e-06 3e-06 -0 3.13389</pose>
-    </model>
-    <model name="aws_robomaker_hospital_curtain_closed_01_4">
+    </model> -->
+    <!-- <model name="aws_robomaker_hospital_curtain_closed_01_4">
       <static>true</static>
       <include><uri>model://aws_robomaker_hospital_curtain_closed_01</uri></include>
       <pose>10.9819 -26.2149 0 0 0 -1.58306</pose>
@@ -831,8 +831,8 @@
       <static>true</static>
       <include><uri>model://aws_robomaker_hospital_curtain_closed_01</uri></include>
       <pose>9.80048 -30.5918 0 0 -0 3.1401</pose>
-    </model>
-    <model name="FemaleVisitorSit_2">
+    </model> -->
+    <!-- <model name="FemaleVisitorSit_2">
       <static>true</static>
       <include><uri>model://FemaleVisitorSit</uri></include>
       <pose>7.85005 6.59766 0 0 0 -1.5621</pose>
@@ -851,8 +851,8 @@
       <static>true</static>
       <include><uri>model://ElderMalePatient</uri></include>
       <pose>-11.2471 -3.5813 0.001656 0 -0 -0.054192</pose>
-    </model>
-    <model name="aws_robomaker_residential_PortraitE_02_6">
+    </model> -->
+    <!-- <model name="aws_robomaker_residential_PortraitE_02_6">
       <static>true</static>
       <include><uri>model://aws_robomaker_residential_PortraitE_02</uri></include>
       <pose>-3.74211 14.8725 1.54379 0 -0 0</pose>
@@ -861,8 +861,8 @@
       <static>true</static>
       <include><uri>model://aws_robomaker_residential_PortraitE_01</uri></include>
       <pose>3.85701 14.8779 1.69742 0 -0 0</pose>
-    </model>
-    <model name="Chair_3">
+    </model> -->
+    <!-- <model name="Chair_3">
       <static>true</static>
       <include><uri>model://Chair</uri></include>
       <pose>-1.37633 -0.795802 0 -1e-06 0 -1.54998</pose>
@@ -931,6 +931,6 @@
       <static>true</static>
       <include><uri>model://Chair</uri></include>
       <pose>1.30985 -0.727185 -0 0 0 -1.53446</pose>
-    </model>
+    </model> -->
   </world>
 </sdf>
