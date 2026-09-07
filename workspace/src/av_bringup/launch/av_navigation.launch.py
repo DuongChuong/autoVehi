@@ -22,7 +22,7 @@ def generate_launch_description():
     ekf_config_file_path = 'config/ekf.yaml'
     map_file_path = 'maps/hospital_world_map.yaml'
     nav2_params_path = 'config/av_nav2_default_params.yaml'
-    rviz_config_file_path = 'rviz/default.rviz'
+    rviz_config_file_path = 'rviz/hospital.rviz'
  
     # Set the path to different packages
     pkg_share_gazebo = FindPackageShare(package=package_name_gazebo).find(package_name_gazebo)

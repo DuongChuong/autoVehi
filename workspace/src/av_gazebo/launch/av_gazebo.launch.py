@@ -26,7 +26,7 @@ def generate_launch_description():
     default_world_file = 'warehouse.world'
     gazebo_worlds_path = 'worlds'
     ros_gz_bridge_config_file_path = 'config/ros_gz_bridge.yaml'
-    rviz_config_filename = 'default.rviz'
+    rviz_config_filename = 'hospital.rviz'
 
     # Set the path to different files and folders
     pkg_ros_gz_sim = FindPackageShare(package='ros_gz_sim').find('ros_gz_sim')

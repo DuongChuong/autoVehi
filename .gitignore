@@ -1,8 +1,23 @@
-.vscode/
-
 build/
 install/
 log/
 
-.data/
-.posegraph/
+__pycache__/
+*.pyc
+*.pyo
+
+*.log
+*.swp
+*.tmp
+.vscode/
+
+.idea/
+cmake-build-*/
+*.bag
+*.db3
+
+venv/
+*.zip
+train/
+dataset/
+*.pt
