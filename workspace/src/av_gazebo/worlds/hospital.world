@@ -156,6 +156,11 @@
       <include><uri>model://FemaleVisitor</uri></include>
       <pose>0.416835 7.44353 0 0 -0 0</pose>
     </model>
+    <model name="FemaleVisitor_2">
+      <static>true</static>
+      <include><uri>model://FemaleVisitor</uri></include>
+      <pose>0.2 3.44353 0 0 -0 0</pose>
+    </model>
     <model name="MaleVisitorSit_2">
       <static>true</static>
       <include><uri>model://MaleVisitorSit</uri></include>
@@ -177,6 +182,34 @@
       <include><uri>model://FemaleVisitorSit</uri></include>
       <pose>7.85005 6.59766 0 0 0 -1.5621</pose>
     </model>
+
+    <!--Action model-->
+    <!-- <actor name="MaleVisitor_1">
+      <skin>
+        <filename>/home/chuongday/autoVehi/workspace/src/av_gazebo/models/MaleVisitor/meshes/MaleVisitorWalk.dae</filename>
+        <scale>1.0</scale>
+      </skin>
+      <animation name="walking">
+        <filename>/home/chuongday/autoVehi/workspace/src/av_gazebo/models/MaleVisitor/meshes/MaleVisitorWalk.dae</filename>
+        <scale>1.0</scale>
+        <interpolate_x>true</interpolate_x>
+      </animation>
+      <script>
+       <loop>true</loop>
+       <delay_start>0</delay_start>
+       <auto_start>true</auto_start>
+       <trajectory id="0" type="walking">
+           <waypoint>
+               <time>0</time>
+               <pose>3 10 0 0 -0 0</pose> 
+           </waypoint>
+           <waypoint>
+               <time>3.0</time>
+               <pose>1 10 0 0 -0 0</pose>
+           </waypoint>
+       </trajectory>
+      </script>
+    </actor> -->
 
   </world>
 </sdf>
