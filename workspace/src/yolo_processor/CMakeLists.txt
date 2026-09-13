@@ -9,14 +9,42 @@ endif()
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
 find_package(vision_msgs REQUIRED)
 
-add_executable(img_processor_node src/img_processor_node.cpp)
-ament_target_dependencies(img_processor_node rclcpp std_msgs vision_msgs)
+add_executable(img_processor_node 
+  src/img_processor_node.cpp
+)
+
+add_executable(fusion_node 
+  src/fusion_node.cpp
+  src/lidar_clusterer.cpp
+)
+
+target_include_directories(fusion_node PUBLIC
+  ${CMAKE_CURRENT_SOURCE_DIR}/include
+)
+
+ament_target_dependencies(img_processor_node 
+  rclcpp 
+  std_msgs 
+  vision_msgs
+)
+ament_target_dependencies(fusion_node 
+  rclcpp 
+  std_msgs 
+  sensor_msgs
+  vision_msgs
+)
+
 
 install(TARGETS
   img_processor_node
+  fusion_node
   DESTINATION lib/${PROJECT_NAME})
+
+install(DIRECTORY include/
+  DESTINATION include)
 
 install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME}/
