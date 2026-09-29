@@ -11,6 +11,7 @@ find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(sensor_msgs REQUIRED)
 find_package(vision_msgs REQUIRED)
+find_package(message_filters REQUIRED)
 
 add_executable(img_processor_node 
   src/img_processor_node.cpp
@@ -35,6 +36,7 @@ ament_target_dependencies(fusion_node
   std_msgs 
   sensor_msgs
   vision_msgs
+  message_filters
 )
 
 

@@ -1,5 +1,5 @@
-#ifndef LIDAR_SLUSTERER_HPP
-#define LIDAR_SLUSTERER_HPP
+#ifndef LIDAR_CLUSTERER_HPP
+#define LIDAR_CLUSTERER_HPP
 
 #include <vector>
 #include <cmath>
@@ -28,4 +28,4 @@ private:
     void expand_cluster(std::vector<Point2D>& points, int point_idx, std::vector<int>& neighbors, int cluster_id) const;
 };
 
-#endif // LIDAR_SLUSTERER_HPP
+#endif // LIDAR_CLUSTERER_HPP

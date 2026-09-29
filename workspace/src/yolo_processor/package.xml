@@ -12,6 +12,7 @@
   <depend>rclcpp</depend>
   <depend>std_msgs</depend>
   <depend>vision_msgs</depend>
+  <depend>message_filters</depend>
   
 
   <test_depend>ament_lint_auto</test_depend>

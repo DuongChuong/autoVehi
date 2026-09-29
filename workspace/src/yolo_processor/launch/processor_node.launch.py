@@ -26,10 +26,10 @@ def generate_launch_description():
         parameters=[{'use_sim_time': use_sim_time}])
 
     # Node for Image Processor
-    img_processor_node = Node(
+    fusion_node = Node(
         package=package_name_processor,
-        executable='img_processor_node',
-        name='img_processor_node',
+        executable='fusion_node',
+        name='fusion_node',
         output='screen',
         parameters=[{'use_sim_time': use_sim_time}])
 
@@ -39,7 +39,7 @@ def generate_launch_description():
     # Add all launch arguments
     ld.add_action(declare_use_sim_time_argument)
     ld.add_action(yolo_detector_node)
-    ld.add_action(img_processor_node)
+    ld.add_action(fusion_node)
 
     return ld
 

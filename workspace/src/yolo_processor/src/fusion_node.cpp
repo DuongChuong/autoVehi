@@ -16,8 +16,8 @@ public:
   FusionNode() : Node("fusion_processor_node"), clusterer_(0.5, 3) 
   {
     // Config the properties of camera
-    double image_width = 640.0;
-    double hfov_rad = 1.5284;
+    image_width = 640.0;
+    hfov_rad = 1.5284;
     
     c_x_ = image_width / 2.0;
     focal_length_ = image_width / (2.0 * std::tan(hfov_rad / 2.0));
@@ -43,6 +43,8 @@ private:
   double c_x_, focal_length_;
   int min_overlap_ray_;
   int max_overlap_ray_;
+  double image_width;
+  double hfov_rad;
   sensor_msgs::msg::LaserScan::SharedPtr last_scan_;
 
   rclcpp::Publisher<std_msgs::msg::String>::SharedPtr pub_;
@@ -64,14 +66,14 @@ private:
       // Left angle
       if (x_min < c_x_ && x_min > 0.0) {
           ray1 = std::floor(2 * (135.0 - theta1_deg));
-      } else if (x_min > c_x_ && x_min < 640.0) {
+      } else if (x_min > c_x_ && x_min < image_width) {
           ray1 = std::floor(2 * (135.0 + theta1_deg));
       }
 
       // Right angle
       if (x_max < c_x_ && x_max > 0.0) {
           ray2 = std::ceil(2 * (135.0 - theta2_deg));
-      } else if (x_max > c_x_ && x_max < 640.0) {
+      } else if (x_max > c_x_ && x_max < image_width) {
           ray2 = std::ceil(2 * (135.0 + theta2_deg));
       }
     
@@ -84,6 +86,11 @@ private:
 
   void yolo_callback(const vision_msgs::msg::Detection2DArray::SharedPtr msg) {
     if (!last_scan_) return; 
+
+    if (last_scan_->ranges.size() <= static_cast<size_t>(max_overlap_ray_)) {
+      RCLCPP_WARN_THROTTLE(this->get_logger(), *this->get_clock(), 1000, "This scan range too small");
+      return;
+    }
 
     // Cutting ROI and convert Polar to Cartesian 
     std::vector<Point2D> points;
@@ -104,15 +111,15 @@ private:
     clusterer_.process(points);
 
     // Combine Lidar and Camera 
-    std::string result_str = "Fusion result:\n";
+    std::string result_str;
     
     for (const auto & detection : msg->detections) {
       std::string class_id = detection.results.empty() ? "unknown" : detection.results[0].hypothesis.class_id;
       
       double center_x = detection.bbox.center.position.x;
       double size_x = detection.bbox.size_x;
-      double x_min = center_x - (size_x / 2.0);
-      double x_max = center_x + (size_x / 2.0);
+      double x_min = std::clamp(center_x - (size_x / 2.0), 0.0, image_width);
+      double x_max = std::clamp(center_x + (size_x / 2.0), 0.0, image_width);
 
       // Take potential rays
       std::pair<int, int> potential_rays = calculate_potential_rays(x_min, x_max);
@@ -135,7 +142,7 @@ private:
 
       // Save result if found object
       if (matched_max_ray != -1) {
-        result_str += " - [" + class_id + "]" + std::to_string(matched_min_ray) + " -> " + std::to_string(matched_max_ray) + "\n";
+        result_str += " - [" + class_id + "] " + std::to_string(matched_min_ray) + " -> " + std::to_string(matched_max_ray);
       }
     }
 
